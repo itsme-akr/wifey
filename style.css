@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+#image-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1px;
+    width: 100vw;
+    height: calc(100vh - 50px); /* Subtract the height of the button */
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.image-tile {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s ease-in-out;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInImage 2.5s forwards;
+    animation-delay: calc(0.1s*var(--index));
+}
+
+@keyframes fadeIn {
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInImage {
+    to{
+        opacity: 1;
+    }
+} 
+
+
+#love-button {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    /* background-image: url('heart.png'); */
+
+    /* color: white; */
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 70px;
+    z-index: 1000;
+}
+
+ /* #love-button:hover {
+    
+}  */
+
+.flipped {
+    pointer-events: none; /* Disable clicks after flipping */
+}
+
+#note-modal {
+    position: absolute;
+    margin: -20px;
+    margin-top: -70px;
+    background-color: transparent;
+    /* padding: 15px; */
+    /* border-radius: 8px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+
+    border-radius: 8px;
+    background-image: url('heart1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    width: 360px;
+    height: 360px; 
+    scale: 70%;
+    display: none; /* Hidden initially */
+    z-index: 1000;
+    /* background-color: rgba(244, 69, 69, 0.8); */
+    
+}
+
+#note-text {
+    position: relative;
+    top: 40%;
+    left: 55%;
+
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-family: cursive;
+    font-size: 20px;
+    color: rgb(200, 228, 248);
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+   
+    z-index: 1;
+    opacity: 1;
+
+}
+
+
+.close-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+    z-index: 2;
+}
+
+#love-music {
+    display: none;
+}
+
+
